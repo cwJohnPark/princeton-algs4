@@ -20,7 +20,77 @@ public class Exercises {
         //ex_1_1_11();
         //ex_1_1_12();
         //ex_1_1_13();
-        ex_1_1_14();
+        //ex_1_1_14();
+        //ex_1_1_15();
+        //ex_1_1_16();
+        //ex_1_1_17();
+        ex_1_1_18();
+    }
+
+    private static void ex_1_1_18() {
+        int n1 = mystery(2, 25);
+        StdOut.println(n1);
+        int n2 = mystery(3, 11);
+        StdOut.println(n2);
+        int n3 = mysteryMultiply(2, 25);
+        StdOut.println(n3);
+        int n4 = mysteryMultiply(3, 11);
+        StdOut.println(n4);
+    }
+
+    private static int mystery(int a, int b) {
+        if (b == 0) return 0;
+        if (b % 2 == 0) return mystery(a+a, b/2);
+        return mystery(a+a, b/2) + a;
+    }
+    private static int mysteryMultiply(int a, int b) {
+        if (b == 0) return 1;
+        if (b % 2 == 0) return mystery(a+a, b/2);
+        return mystery(a+a, b/2) * a;
+    }
+
+    private static void ex_1_1_17() {
+        String s1 = exR2(6);
+        StdOut.println(s1);
+
+    }
+
+    private static String exR2(int n) {
+        // change the order of these lines
+        //String s = exR2(n-3) + n + exR2(n-2) + n;
+
+        if (n <= 0) return "";
+        String s = exR2(n-3) + n + exR2(n-2) + n;
+
+        return s;
+    }
+
+    private static void ex_1_1_16() {
+        String result = exR1(6);
+        StdOut.println(result);
+    }
+
+    private static String exR1(int n) {
+        if (n <= 0) return "";
+        return exR1(n-3) + n + exR1(n-2) + n;
+    }
+
+    private static void ex_1_1_15() {
+        int M = 10; // the size of the returned array
+        // the element of the a must be between 0 to M-1
+        int[] a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        int[] histogram = histogram(a, M);
+        StdOut.println(Arrays.toString(histogram));
+        int[] expected = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    }
+
+    private static int[] histogram(int[] a, int M) {
+        int[] histogram = new int[M];
+        for(int i = 0; i < a.length; i++) {
+            histogram[a[i]]++;
+        }
+        return histogram;
     }
 
     private static void ex_1_1_14() {
