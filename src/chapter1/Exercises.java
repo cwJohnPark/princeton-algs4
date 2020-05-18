@@ -3,6 +3,7 @@ package chapter1;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Exercises {
@@ -24,8 +25,77 @@ public class Exercises {
         //ex_1_1_15();
         //ex_1_1_16();
         //ex_1_1_17();
-        ex_1_1_18();
+        //ex_1_1_18();
+        //ex_1_1_19();
+        //ex_1_1_20();
+        ex_1_1_21();
     }
+
+    private static void ex_1_1_21() {
+        StdOut.print("Enter the number of Students: ");
+        int numOfRows = StdIn.readInt();
+        String[] names = new String[numOfRows];
+        int[] col1 = new int[numOfRows];
+        int[] col2 = new int[numOfRows];
+
+        for(int i = 0; i < numOfRows; i++) {
+            StdOut.print("Enter the student name: ");
+            names[i] = StdIn.readString();
+            StdOut.print("Enter the student score 1: ");
+            col1[i] = StdIn.readInt();
+            StdOut.print("Enter the student score 2: ");
+            col2[i] = StdIn.readInt();
+        }
+
+        for(int i = 0; i < numOfRows; i++) {
+            double avg = (col1[i] + col2[i]) / 2.0;
+            StdOut.printf("name : %s, grade: %.2f\n", names[i], avg);
+
+        }
+    }
+
+    private static void ex_1_1_20() {
+        // write recursive static method compute value of ln(N!)
+        int N = 4;
+        double res = lnfact(N);
+        StdOut.println(res);
+    }
+
+    private static double lnfact(int N) {
+        long result = 1;
+        for(int i = 1; i <= N; i++) {
+            result *= i;
+        }
+        return Math.log(result);
+    }
+
+    private static void ex_1_1_19() {
+//        for(int N = 0; N < 100; N++ ) {
+//            System.out.println(N + " " + fibonacci(N));
+//        }
+        for(int N = 0; N < 100; N++ ) {
+            System.out.println(N + " " + fiboBetter(N));
+        }
+    }
+
+    private static BigDecimal fiboBetter(int N) {
+        BigDecimal i1 = BigDecimal.valueOf(0);
+        BigDecimal i2 = BigDecimal.valueOf(1);
+        BigDecimal sum = BigDecimal.valueOf(0);
+        while(N-- > 0) {
+            sum = i1.add(i2);
+            i1 = i2;
+            i2 = sum;
+        }
+        return i1;
+    }
+
+    private static long fibonacci(int N) {
+        if ( N == 0 ) return 0;
+        if ( N == 1 ) return 1;
+        return fibonacci(N-1) + fibonacci(N-2);
+    }
+
 
     private static void ex_1_1_18() {
         int n1 = mystery(2, 25);
