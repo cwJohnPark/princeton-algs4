@@ -28,7 +28,53 @@ public class Exercises {
         //ex_1_1_18();
         //ex_1_1_19();
         //ex_1_1_20();
-        ex_1_1_21();
+        //ex_1_1_21();
+        //ex_1_1_22();
+        //ex_1_1_24();
+
+    }
+
+    private static void ex_1_1_24() {
+//        StdOut.print("Enter value p");
+//        int p =StdIn.readInt();
+//        StdOut.print("Enter value q");
+//        int q = StdIn.readInt();
+        int p = 1071;
+        int q = 462;
+        p = 1111111;
+        q = 1234567;
+        int gcd = euclid(p, q);
+        StdOut.println("GCD :" + gcd);
+    }
+
+    private static int euclid(int p, int q) {
+        if(p % q == 0) return q;
+        return euclid(q, p % q);
+    }
+
+    private static void ex_1_1_22() {
+        int keyIndex = rank(3, new int[]{1,2,3,4,5,6,7,8,9,10});
+    }
+
+    public static int rank(int key, int[] a) {
+        int lo = 0;
+        int hi = a.length-1;
+        int indentDepth = 0;
+        while(lo <= hi) {
+            for(int i = 0; i < indentDepth; i++) {
+                StdOut.print("\t");
+            }
+            indentDepth++;
+            StdOut.printf("ㄴㅡ ");
+            StdOut.printf("lo : %s, hi: %s\n", lo, hi);
+
+            int mid = lo + (hi - lo) / 2;
+            if (key < a[mid]) hi = mid - 1;
+            else if (key > a[mid]) lo = mid + 1;
+            else return mid;
+        }
+
+        return -1;
     }
 
     private static void ex_1_1_21() {
