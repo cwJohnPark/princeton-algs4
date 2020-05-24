@@ -1,4 +1,4 @@
-package chapter1.plot;
+package chapter1.programmingmodel;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
@@ -7,9 +7,9 @@ import java.util.Arrays;
 
 public class PlotApiTest {
     public static void main(String[] args) {
-        //functionValues(100);
+        functionValues(100);
         //arrayOfRandomValues(50);
-        sortedArrayOfRandomValues(50);
+        //sortedArrayOfRandomValues(50);
     }
     public static void functionValues(int N) {
         StdDraw.setXscale(0, N);
@@ -21,6 +21,7 @@ public class PlotApiTest {
             StdDraw.point(i, i * Math.log(i));
         }
     }
+
     public static void arrayOfRandomValues(int N) {
         double[] a = new double[N];
         for (int i = 0; i < N; i++) {

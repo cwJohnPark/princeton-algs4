@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.programmingmodel;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -47,7 +47,8 @@ public class Exercises {
         StdOut.println("GCD :" + gcd);
     }
 
-    private static int euclid(int p, int q) {
+    public static int euclid(int p, int q) {
+        if(q == 0 || p == 0) return 0;
         if(p % q == 0) return q;
         return euclid(q, p % q);
     }
